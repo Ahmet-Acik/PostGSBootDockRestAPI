@@ -25,8 +25,8 @@ public class ParticipantController {
     @GetMapping
     @Operation(summary = "Get all participants")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Successfully retrieved list"),
-        @ApiResponse(responseCode = "500", description = "Internal server error")
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved list"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     public Iterable<Participant> getParticipants() {
         return participantRepository.findAll();
@@ -35,8 +35,8 @@ public class ParticipantController {
     @GetMapping("/{id}")
     @Operation(summary = "Get a participant by ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Successfully retrieved participant"),
-        @ApiResponse(responseCode = "404", description = "Participant not found")
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved participant"),
+            @ApiResponse(responseCode = "404", description = "Participant not found")
     })
     public Participant getParticipant(@PathVariable Long id) {
         return participantRepository.findById(id)
@@ -46,8 +46,8 @@ public class ParticipantController {
     @PostMapping
     @Operation(summary = "Create a new participant")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "201", description = "Successfully created participant"),
-        @ApiResponse(responseCode = "400", description = "Invalid input or email already exists")
+            @ApiResponse(responseCode = "201", description = "Successfully created participant"),
+            @ApiResponse(responseCode = "400", description = "Invalid input or email already exists")
     })
     public Participant createParticipant(@RequestBody Participant participant) {
         validateParticipant(participant);
@@ -60,9 +60,9 @@ public class ParticipantController {
     @PutMapping("/{id}")
     @Operation(summary = "Update an existing participant")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Successfully updated participant"),
-        @ApiResponse(responseCode = "400", description = "Invalid input or email already exists"),
-        @ApiResponse(responseCode = "404", description = "Participant not found")
+            @ApiResponse(responseCode = "200", description = "Successfully updated participant"),
+            @ApiResponse(responseCode = "400", description = "Invalid input or email already exists"),
+            @ApiResponse(responseCode = "404", description = "Participant not found")
     })
     public Participant updateParticipant(@PathVariable Long id, @RequestBody Participant participant) {
         validateParticipant(participant);
@@ -81,9 +81,9 @@ public class ParticipantController {
     @PatchMapping("/{id}")
     @Operation(summary = "Partially update a participant")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Successfully updated participant"),
-        @ApiResponse(responseCode = "400", description = "Invalid input or email already exists"),
-        @ApiResponse(responseCode = "404", description = "Participant not found")
+            @ApiResponse(responseCode = "200", description = "Successfully updated participant"),
+            @ApiResponse(responseCode = "400", description = "Invalid input or email already exists"),
+            @ApiResponse(responseCode = "404", description = "Participant not found")
     })
     public Participant patchParticipant(@PathVariable Long id, @RequestBody Participant participant) {
         validateParticipant(participant);
@@ -110,8 +110,8 @@ public class ParticipantController {
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a participant")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "204", description = "Successfully deleted participant"),
-        @ApiResponse(responseCode = "404", description = "Participant not found")
+            @ApiResponse(responseCode = "204", description = "Successfully deleted participant"),
+            @ApiResponse(responseCode = "404", description = "Participant not found")
     })
     public void deleteParticipant(@PathVariable Long id) {
         participantRepository.findById(id)
